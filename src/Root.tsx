@@ -1,16 +1,16 @@
 import { Composition } from "@remotion/core";
-import { MyComposition } from "./MyComposition";
+import { EscritorioSeguroVideo } from "./EscritorioSeguroVideo";
 
 export const RemotionRoot = () => {
   return (
     <>
       <Composition
-        id="MyComposition"
-        component={MyComposition}
-        durationInFrames={150}
+        id="EscritorioSeguro"
+        component={EscritorioSeguroVideo}
+        durationInFrames={930}
         fps={30}
-        width={1920}
-        height={1080}
+        width={1080}
+        height={1920}
       />
     </>
   );
