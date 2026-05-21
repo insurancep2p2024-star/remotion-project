@@ -1,5 +1,5 @@
 import { FONT_SANS, FONT_MONO } from "../fonts";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "@remotion/core";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
 
 export const Scene7CTA = () => {
   const frame = useCurrentFrame();
