@@ -1,0 +1,23 @@
+{
+  "name": "remotion-project",
+  "version": "1.0.0",
+  "description": "Video project built with Remotion",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render",
+    "render": "remotion render MyComposition out/video.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.180",
+    "@remotion/core": "4.0.180",
+    "react": "18.3.4",
+    "react-dom": "18.3.4"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.4",
+    "typescript": "5.4.5"
+  },
+  "remotion": {
+    "entryPoint": "src/index.ts"
+  }
+}
