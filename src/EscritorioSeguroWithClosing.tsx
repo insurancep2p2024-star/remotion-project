@@ -1,4 +1,5 @@
-import { AbsoluteFill, Sequence, Audio, staticFile, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Sequence, Audio, staticFile, interpolate, useCurrentFrame, TimelineContext } from "remotion";
+import React from "react";
 import { Scene1Hook } from "./scenes/Scene1Hook";
 import { Scene2Necessity } from "./scenes/Scene2Necessity";
 import { Scene3ProductIntro } from "./scenes/Scene3ProductIntro";
@@ -8,11 +9,24 @@ import { Scene6Benefits } from "./scenes/Scene6Benefits";
 import { Scene7CTA } from "./scenes/Scene7CTA";
 import { ClosingCard } from "./scenes/SceneClosing";
 
-// 1 thumbnail frame + 1080 video frames = 1081 total
 const THUMBNAIL_FRAMES = 1;
 const VIDEO_FRAMES = 1080;
 const TOTAL_FRAMES = THUMBNAIL_FRAMES + VIDEO_FRAMES;
-const FADE_START = TOTAL_FRAMES - 60;
+
+// Overrides the Remotion time context so Scene1Hook always
+// sees frame=60, regardless of what the global frame is.
+const FrozenAt60: React.FC = () => {
+  const ctx = React.useContext(TimelineContext);
+  const frozen = React.useMemo(
+    () => ({ ...ctx, frame: 60, fps: 30 }),
+    [ctx]
+  );
+  return (
+    <TimelineContext.Provider value={frozen}>
+      <Scene1Hook />
+    </TimelineContext.Provider>
+  );
+};
 
 export const EscritorioSeguroWithClosing = () => {
   const frame = useCurrentFrame();
@@ -20,7 +34,7 @@ export const EscritorioSeguroWithClosing = () => {
   return (
     <AbsoluteFill style={{ background: "#0A2540" }}>
 
-      {/* 🎵 Audio — only after thumbnail frame */}
+      {/* 🎵 Audio */}
       <Audio
         src={staticFile("music.mp3")}
         startFrom={0}
@@ -37,20 +51,13 @@ export const EscritorioSeguroWithClosing = () => {
         }
       />
 
-      {/* 🖼️ Frame 0: Scene1Hook frozen at its internal frame 60
-          We achieve this by rendering Scene1Hook inside a Sequence
-          that starts at -60, so at global frame 0 the component
-          sees its own frame as 60 — giving us the desired thumbnail. */}
-      {frame === 0 && (
-        <Sequence from={-60} durationInFrames={1}>
-          <Scene1Hook />
-        </Sequence>
-      )}
+      {/* 🖼️ Frame 0 only: Scene1Hook frozen at frame 60 */}
+      {frame === 0 && <FrozenAt60 />}
 
-      {/* 🎬 All scenes — shifted 1 frame to make room for thumbnail */}
+      {/* 🎬 Video from frame 1 onwards */}
       {frame > 0 && (
         <>
-          <Sequence from={THUMBNAIL_FRAMES + 0} durationInFrames={90}>
+          <Sequence from={THUMBNAIL_FRAMES} durationInFrames={90}>
             <Scene1Hook />
           </Sequence>
           <Sequence from={THUMBNAIL_FRAMES + 90} durationInFrames={150}>
