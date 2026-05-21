@@ -1,3 +1,4 @@
+import { FONT_SANS, FONT_MONO } from "../fonts";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "@remotion/core";
 
 const PARTICLE_COUNT = 22;
@@ -91,7 +92,7 @@ export const Scene3ProductIntro = () => {
             fontSize: 48,
             fontWeight: 900,
             color: "white",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             letterSpacing: "-2px",
           }}>TP</span>
         </div>
@@ -107,7 +108,7 @@ export const Scene3ProductIntro = () => {
             fontSize: 80,
             fontWeight: 900,
             color: "white",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             letterSpacing: "-0.04em",
             lineHeight: 1,
           }}>Escritorio</div>
@@ -117,7 +118,7 @@ export const Scene3ProductIntro = () => {
             background: "linear-gradient(90deg, #60A5FA, #0066FF)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             letterSpacing: "-0.04em",
             lineHeight: 1,
           }}>Seguro</div>
@@ -130,7 +131,7 @@ export const Scene3ProductIntro = () => {
           fontSize: 38,
           fontWeight: 600,
           color: "rgba(255,255,255,0.65)",
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: FONT_SANS,
           textAlign: "center",
           letterSpacing: "-0.01em",
         }}>
@@ -143,7 +144,7 @@ export const Scene3ProductIntro = () => {
           opacity: sloganOp * 0.6,
           fontSize: 28,
           color: "rgba(255,255,255,0.3)",
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: FONT_MONO,
           letterSpacing: "0.2em",
           textTransform: "uppercase",
         }}>
