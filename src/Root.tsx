@@ -1,4 +1,4 @@
-import { Composition } from "@remotion/core";
+import { Composition } from "remotion";
 import { EscritorioSeguroVideo } from "./EscritorioSeguroVideo";
 import { loadFonts } from "./fonts";
 
