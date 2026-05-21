@@ -1,5 +1,5 @@
 import { FONT_SANS, FONT_MONO } from "../fonts";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "@remotion/core";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
 
 // Bezier easing helper
 const easeInOut = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
