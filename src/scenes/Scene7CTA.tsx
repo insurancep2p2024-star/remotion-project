@@ -85,7 +85,7 @@ export const Scene7CTA = () => {
           letterSpacing: "0.05em",
           marginBottom: 32,
         }}>
-          2025 — Cero tolerancia
+          2026 — Cero tolerancia
         </div>
 
         {/* Price */}
