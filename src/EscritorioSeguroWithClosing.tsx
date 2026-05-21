@@ -1,4 +1,4 @@
-import { AbsoluteFill, Sequence } from "remotion";
+import { AbsoluteFill, Sequence, Audio, staticFile, interpolate } from "remotion";
 import { Scene1Hook } from "./scenes/Scene1Hook";
 import { Scene2Necessity } from "./scenes/Scene2Necessity";
 import { Scene3ProductIntro } from "./scenes/Scene3ProductIntro";
@@ -8,11 +8,30 @@ import { Scene6Benefits } from "./scenes/Scene6Benefits";
 import { Scene7CTA } from "./scenes/Scene7CTA";
 import { ClosingCard } from "./scenes/SceneClosing";
 
-// Total: 31s video + 5s closing = 36s = 1080 frames
+// Total: 930 frames video + 150 frames closing = 1080 frames = 36s @ 30fps
+const TOTAL_FRAMES = 1080;
+// Fade out audio in last 60 frames (2s)
+const FADE_START = TOTAL_FRAMES - 60;
 
 export const EscritorioSeguroWithClosing = () => {
   return (
     <AbsoluteFill style={{ background: "#0A2540" }}>
+
+      {/* 🎵 Background music — trimmed to video length with fade out */}
+      <Audio
+        src={staticFile("music.mp3")}
+        startFrom={0}
+        endAt={TOTAL_FRAMES}
+        volume={(frame) =>
+          interpolate(
+            frame,
+            [0, 30, FADE_START, TOTAL_FRAMES],
+            [0, 0.35, 0.35, 0],
+            { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+          )
+        }
+      />
+
       <Sequence from={0} durationInFrames={90}>
         <Scene1Hook />
       </Sequence>
@@ -34,7 +53,6 @@ export const EscritorioSeguroWithClosing = () => {
       <Sequence from={780} durationInFrames={150}>
         <Scene7CTA />
       </Sequence>
-      {/* Closing card: starts at frame 930, 5s = 150 frames */}
       <Sequence from={930} durationInFrames={150}>
         <ClosingCard />
       </Sequence>
