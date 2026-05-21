@@ -1,4 +1,4 @@
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, Sequence } from "@remotion/core";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, Sequence } from "remotion";
 import { Scene1Hook } from "./scenes/Scene1Hook";
 import { Scene2Necessity } from "./scenes/Scene2Necessity";
 import { Scene3ProductIntro } from "./scenes/Scene3ProductIntro";
