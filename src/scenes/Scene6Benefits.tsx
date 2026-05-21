@@ -1,5 +1,5 @@
 import { FONT_SANS, FONT_MONO } from "../fonts";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "@remotion/core";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
 
 const benefits = [
   { icon: "✅", text: "Menos bloqueos, cero sustos", color: "#34C759" },
