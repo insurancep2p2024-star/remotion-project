@@ -8,14 +8,15 @@
     "render": "remotion render EscritorioSeguro out/video.mp4"
   },
   "dependencies": {
-    "@remotion/cli": "4.0.180",
-    "@remotion/core": "4.0.180",
-    "@remotion/google-fonts": "4.0.180",
+    "@remotion/cli": "4.0.464",
+    "@remotion/core": "4.0.464",
+    "@remotion/google-fonts": "4.0.464",
     "react": "18.3.4",
     "react-dom": "18.3.4"
   },
   "devDependencies": {
-    "@types/react": "18.3.4",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.4",
     "typescript": "5.4.5"
   },
   "remotion": {
