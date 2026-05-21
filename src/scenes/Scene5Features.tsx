@@ -1,3 +1,4 @@
+import { FONT_SANS, FONT_MONO } from "../fonts";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "@remotion/core";
 
 const features = [
@@ -71,7 +72,7 @@ export const Scene5Features = () => {
             fontSize: 56,
             fontWeight: 900,
             color: "white",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             letterSpacing: "-0.03em",
             lineHeight: 1.1,
           }}>
@@ -112,14 +113,14 @@ export const Scene5Features = () => {
                   fontSize: 42,
                   fontWeight: 800,
                   color: f.color,
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: FONT_SANS,
                   letterSpacing: "-0.02em",
                   lineHeight: 1.15,
                 }}>{f.title}</div>
                 <div style={{
                   fontSize: 32,
                   color: "rgba(255,255,255,0.55)",
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: FONT_SANS,
                   fontWeight: 500,
                   marginTop: 4,
                 }}>{f.desc}</div>
