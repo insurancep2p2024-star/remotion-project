@@ -1,3 +1,4 @@
+import { FONT_SANS, FONT_MONO } from "../fonts";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "@remotion/core";
 
 export const Scene1Hook = () => {
@@ -71,7 +72,7 @@ export const Scene1Hook = () => {
             fontSize: 72,
             fontWeight: 900,
             color: "white",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             letterSpacing: "-0.03em",
             marginBottom: 8,
           }}>¿Qué pasaría</div>
@@ -81,7 +82,7 @@ export const Scene1Hook = () => {
             fontSize: 72,
             fontWeight: 900,
             color: "#60A5FA",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             letterSpacing: "-0.03em",
             marginBottom: 8,
           }}>si mañana</div>
@@ -91,7 +92,7 @@ export const Scene1Hook = () => {
             fontSize: 64,
             fontWeight: 900,
             color: "white",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             letterSpacing: "-0.03em",
             lineHeight: 1.05,
           }}>no puedes entrar<br/>al Marketplace?</div>
@@ -103,7 +104,7 @@ export const Scene1Hook = () => {
           transform: `scale(${spring({ frame: Math.max(0, frame - 20), fps, config: { damping: 14, stiffness: 100 } })})`,
           fontSize: 36,
           color: "rgba(255,255,255,0.5)",
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: FONT_SANS,
           fontWeight: 500,
           textAlign: "center",
         }}>
