@@ -1,3 +1,4 @@
+import { FONT_SANS, FONT_MONO } from "../fonts";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "@remotion/core";
 
 const fines = [
@@ -65,7 +66,7 @@ export const Scene2Necessity = () => {
             fontSize: 28,
             fontWeight: 700,
             color: "#FF3B30",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
           }}>⚖️ Alerta Legal HIPAA</div>
@@ -77,7 +78,7 @@ export const Scene2Necessity = () => {
           fontSize: 52,
           fontWeight: 800,
           color: "white",
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: FONT_SANS,
           letterSpacing: "-0.025em",
           lineHeight: 1.1,
           marginBottom: 20,
@@ -99,13 +100,13 @@ export const Scene2Necessity = () => {
             fontSize: 80,
             fontWeight: 900,
             color: "#FF3B30",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             lineHeight: 1,
           }}>SÍ.</div>
           <div style={{
             fontSize: 32,
             color: "rgba(255,255,255,0.7)",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             fontWeight: 600,
             lineHeight: 1.3,
           }}>
@@ -137,21 +138,21 @@ export const Scene2Necessity = () => {
                   fontSize: 28,
                   fontWeight: 700,
                   color: isMax ? "#FF3B30" : "rgba(255,255,255,0.4)",
-                  fontFamily: "'JetBrains Mono', monospace",
+                  fontFamily: FONT_MONO,
                   minWidth: 80,
                 }}>{fine.level}</div>
                 <div style={{
                   flex: 1,
                   fontSize: 28,
                   color: "rgba(255,255,255,0.7)",
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: FONT_SANS,
                   fontWeight: 500,
                 }}>{fine.type}</div>
                 <div style={{
                   fontSize: 32,
                   fontWeight: 800,
                   color: isMax ? "#FF3B30" : "#FF8C7A",
-                  fontFamily: "'JetBrains Mono', monospace",
+                  fontFamily: FONT_MONO,
                 }}>{fine.max}</div>
               </div>
             );
