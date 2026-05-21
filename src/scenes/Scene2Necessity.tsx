@@ -1,5 +1,5 @@
 import { FONT_SANS, FONT_MONO } from "../fonts";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "@remotion/core";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
 
 const fines = [
   { level: "Nivel 1", type: "Falta de conocimiento", min: "$145", max: "$29,211" },
