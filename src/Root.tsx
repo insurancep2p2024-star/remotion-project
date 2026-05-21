@@ -17,6 +17,7 @@ export const RemotionRoot = () => {
         fps={30}
         width={1080}
         height={1920}
+        posterRenderFrame={60}
       />
 
       {/* Solo el video (sin cierre) */}
