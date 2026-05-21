@@ -1,3 +1,4 @@
+import { FONT_SANS, FONT_MONO } from "../fonts";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "@remotion/core";
 
 export const Scene7CTA = () => {
@@ -80,7 +81,7 @@ export const Scene7CTA = () => {
           fontSize: 30,
           fontWeight: 700,
           color: "#FF3B30",
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: FONT_SANS,
           letterSpacing: "0.05em",
           marginBottom: 32,
         }}>
@@ -97,7 +98,7 @@ export const Scene7CTA = () => {
             fontSize: 40,
             fontWeight: 600,
             color: "rgba(255,255,255,0.5)",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             letterSpacing: "0.1em",
             textTransform: "uppercase",
             marginBottom: 8,
@@ -113,14 +114,14 @@ export const Scene7CTA = () => {
               fontSize: 48,
               fontWeight: 700,
               color: "rgba(255,255,255,0.6)",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: FONT_SANS,
               marginTop: 16,
             }}>$</span>
             <span style={{
               fontSize: 140,
               fontWeight: 900,
               color: "white",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: FONT_SANS,
               letterSpacing: "-0.05em",
               lineHeight: 1,
             }}>50</span>
@@ -128,7 +129,7 @@ export const Scene7CTA = () => {
               fontSize: 44,
               fontWeight: 600,
               color: "rgba(255,255,255,0.5)",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: FONT_SANS,
               marginTop: 24,
               alignSelf: "flex-end",
               paddingBottom: 8,
@@ -155,7 +156,7 @@ export const Scene7CTA = () => {
               fontSize: 28,
               fontWeight: 600,
               color: "#60A5FA",
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontFamily: FONT_SANS,
             }}>{tag}</div>
           ))}
         </div>
@@ -178,7 +179,7 @@ export const Scene7CTA = () => {
             fontSize: 40,
             fontWeight: 800,
             color: "white",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             letterSpacing: "-0.01em",
           }}>Empezar hoy →</span>
         </div>
@@ -190,7 +191,7 @@ export const Scene7CTA = () => {
           fontSize: 38,
           fontWeight: 700,
           color: "#60A5FA",
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: FONT_MONO,
           letterSpacing: "0.05em",
           textAlign: "center",
         }}>
@@ -202,7 +203,7 @@ export const Scene7CTA = () => {
           opacity: line3Op * 0.6,
           fontSize: 28,
           color: "rgba(255,255,255,0.35)",
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontFamily: FONT_SANS,
           marginTop: 12,
           textAlign: "center",
         }}>
