@@ -1,3 +1,4 @@
+import { FONT_SANS, FONT_MONO } from "../fonts";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "@remotion/core";
 
 // Bezier easing helper
@@ -105,7 +106,7 @@ export const Scene4Demo = () => {
           fontSize: 30,
           fontWeight: 700,
           color: "rgba(255,255,255,0.45)",
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: FONT_MONO,
           letterSpacing: "0.15em",
           textTransform: "uppercase",
           marginBottom: 28,
@@ -133,7 +134,7 @@ export const Scene4Demo = () => {
               marginLeft: 12,
               fontSize: 24,
               color: "rgba(255,255,255,0.3)",
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: FONT_MONO,
               letterSpacing: "0.1em",
             }}>MARKETPLACE LOGIN</span>
           </div>
@@ -143,7 +144,7 @@ export const Scene4Demo = () => {
             fontSize: 28,
             fontWeight: 600,
             color: "rgba(255,255,255,0.5)",
-            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontFamily: FONT_SANS,
             marginBottom: 10,
           }}>Correo electrónico</div>
 
@@ -167,7 +168,7 @@ export const Scene4Demo = () => {
             <span style={{
               fontSize: 36,
               color: "rgba(255,255,255,0.85)",
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: FONT_MONO,
               fontWeight: 400,
               flex: 1,
             }}>{typedText}
@@ -227,7 +228,7 @@ export const Scene4Demo = () => {
                 fontSize: 36,
                 fontWeight: 800,
                 color: "white",
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontFamily: FONT_SANS,
                 letterSpacing: "-0.01em",
               }}>
                 {showResult ? "✓ Conectado" : "Conectar ahora"}
@@ -275,12 +276,12 @@ export const Scene4Demo = () => {
                   fontSize: 36,
                   fontWeight: 700,
                   color: "#34C759",
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: FONT_SANS,
                 }}>🇺🇸 Conectado — Miami, FL</div>
                 <div style={{
                   fontSize: 28,
                   color: "rgba(255,255,255,0.5)",
-                  fontFamily: "'JetBrains Mono', monospace",
+                  fontFamily: FONT_MONO,
                   marginTop: 4,
                 }}>IP: 104.28.11.xx · Dedicada · Segura</div>
               </div>
