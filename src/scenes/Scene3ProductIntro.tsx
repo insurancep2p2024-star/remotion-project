@@ -25,7 +25,7 @@ export const Scene3ProductIntro = () => {
   const { fps } = useVideoConfig();
 
   const fadeIn = interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" });
-  const fadeOut = interpolate(frame, [135, 149], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const fadeOut = interpolate(frame, [225, 239], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const alpha = fadeIn * fadeOut;
 
   // --- PART 1: Intro elements (frames 0–74) ---
@@ -35,15 +35,15 @@ export const Scene3ProductIntro = () => {
   const sloganY = spring({ frame: Math.max(0, frame - 20), fps, config: { damping: 14, stiffness: 100 } });
 
   // Intro fades out at frame 65-80 to make room for benefits
-  const introOp = interpolate(frame, [60, 78], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const introOp = interpolate(frame, [110, 128], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   // Logo shrinks and moves up
-  const logoShrink = interpolate(frame, [60, 78], [1, 0.55], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const logoY = interpolate(frame, [60, 78], [0, -320], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const logoShrink = interpolate(frame, [110, 128], [1, 0.55], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const logoY = interpolate(frame, [110, 128], [0, -320], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   // --- PART 2: Benefits (frames 75–149) ---
-  const benefitsOp = interpolate(frame, [72, 88], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const titleScale = spring({ frame: Math.max(0, frame - 72), fps, config: { damping: 12, stiffness: 110 } });
-  const lineDelays = [82, 98, 114];
+  const benefitsOp = interpolate(frame, [122, 138], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const titleScale = spring({ frame: Math.max(0, frame - 122), fps, config: { damping: 12, stiffness: 110 } });
+  const lineDelays = [132, 148, 164];
 
   return (
     <AbsoluteFill style={{ background: "#0A2540", opacity: alpha }}>
