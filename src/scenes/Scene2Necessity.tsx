@@ -2,10 +2,10 @@ import { FONT_SANS, FONT_MONO } from "../fonts";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
 
 const fines = [
-  { level: "Nivel 1", type: "Falta de conocimiento", min: "$145", max: "$29,211" },
-  { level: "Nivel 2", type: "Causa razonable", min: "$1,461", max: "$58,423" },
-  { level: "Nivel 3", type: "Negligencia corregida", min: "$14,602", max: "$58,423" },
-  { level: "Nivel 4", type: "Negligencia intencional", min: "$58,423", max: "$1,919,173" },
+  { level: "Nivel 1", type: "Falta de conocimiento", max: "$29,211" },
+  { level: "Nivel 2", type: "Causa razonable", max: "$58,423" },
+  { level: "Nivel 3", type: "Negligencia corregida", max: "$58,423" },
+  { level: "Nivel 4", type: "Negligencia intencional", max: "$1,919,173" },
 ];
 
 export const Scene2Necessity = () => {
@@ -16,29 +16,23 @@ export const Scene2Necessity = () => {
   const fadeOut = interpolate(frame, [130, 149], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const alpha = fadeIn * fadeOut;
 
-  // Question appears first
   const questionScale = spring({ frame, fps, config: { damping: 12, stiffness: 100, mass: 0.7 } });
-
-  // "Sí" slams in at frame 25
   const answerScale = spring({ frame: Math.max(0, frame - 25), fps, config: { damping: 8, stiffness: 200, mass: 0.4 } });
-  const answerOpacity = interpolate(frame, [25, 35], [0, 1], { extrapolateRight: "clamp" });
+  const answerOpacity = interpolate(frame, [25, 38], [0, 1], { extrapolateRight: "clamp" });
 
-  // Table rows stagger in after frame 40
-  const rowDelays = [40, 55, 70, 85];
+  const rowDelays = [42, 58, 74, 90];
 
   return (
-    <AbsoluteFill style={{
-      background: "#0D0A0A",
-      opacity: alpha,
-    }}>
-      {/* Red glow background */}
+    <AbsoluteFill style={{ background: "#0D0A0A", opacity: alpha }}>
+
+      {/* Red glow — centered */}
       <div style={{
         position: "absolute",
         inset: 0,
-        background: "radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,59,48,0.18), transparent)",
+        background: "radial-gradient(ellipse 85% 70% at 50% 50%, rgba(255,59,48,0.16), transparent)",
       }} />
 
-      {/* Safe zone */}
+      {/* Safe zone — fully centered vertically */}
       <div style={{
         position: "absolute",
         top: 150,
@@ -47,65 +41,68 @@ export const Scene2Necessity = () => {
         right: 60,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-start",
-        paddingTop: 20,
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 0,
       }}>
+
         {/* Badge */}
         <div style={{
           transform: `scale(${questionScale})`,
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-          marginBottom: 24,
+          marginBottom: 28,
         }}>
           <div style={{
             background: "rgba(255,59,48,0.2)",
             border: "1px solid rgba(255,59,48,0.5)",
-            borderRadius: 8,
-            padding: "6px 16px",
-            fontSize: 28,
+            borderRadius: 10,
+            padding: "10px 24px",
+            fontSize: 32,
             fontWeight: 700,
             color: "#FF3B30",
             fontFamily: FONT_SANS,
-            letterSpacing: "0.08em",
+            letterSpacing: "0.06em",
             textTransform: "uppercase",
+            textAlign: "center",
           }}>⚖️ Alerta Legal HIPAA</div>
         </div>
 
         {/* Question */}
         <div style={{
           transform: `scale(${questionScale})`,
-          fontSize: 52,
+          fontSize: 60,
           fontWeight: 800,
           color: "white",
           fontFamily: FONT_SANS,
           letterSpacing: "-0.025em",
-          lineHeight: 1.1,
-          marginBottom: 20,
+          lineHeight: 1.15,
+          marginBottom: 28,
+          textAlign: "center",
         }}>
           ¿Usar una VPN para<br/>simular estar en EE.UU.<br/>
           <span style={{ color: "rgba(255,255,255,0.5)" }}>viola la ley federal?</span>
         </div>
 
-        {/* Big YES answer */}
+        {/* Big YES */}
         <div style={{
           transform: `scale(${answerScale})`,
           opacity: answerOpacity,
           display: "flex",
           alignItems: "center",
-          gap: 16,
-          marginBottom: 32,
+          justifyContent: "center",
+          gap: 20,
+          marginBottom: 36,
+          width: "100%",
         }}>
           <div style={{
-            fontSize: 80,
+            fontSize: 100,
             fontWeight: 900,
             color: "#FF3B30",
             fontFamily: FONT_SANS,
             lineHeight: 1,
           }}>SÍ.</div>
           <div style={{
-            fontSize: 32,
-            color: "rgba(255,255,255,0.7)",
+            fontSize: 38,
+            color: "rgba(255,255,255,0.75)",
             fontFamily: FONT_SANS,
             fontWeight: 600,
             lineHeight: 1.3,
@@ -116,7 +113,7 @@ export const Scene2Necessity = () => {
         </div>
 
         {/* Fines table */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%" }}>
           {fines.map((fine, i) => {
             const rowScale = spring({ frame: Math.max(0, frame - rowDelays[i]), fps, config: { damping: 14, stiffness: 120 } });
             const rowOpacity = interpolate(frame, [rowDelays[i], rowDelays[i] + 12], [0, 1], { extrapolateRight: "clamp" });
@@ -128,28 +125,28 @@ export const Scene2Necessity = () => {
                 opacity: rowOpacity,
                 display: "flex",
                 alignItems: "center",
-                gap: 12,
-                background: isMax ? "rgba(255,59,48,0.15)" : "rgba(255,255,255,0.04)",
-                border: `1px solid ${isMax ? "rgba(255,59,48,0.4)" : "rgba(255,255,255,0.08)"}`,
-                borderRadius: 12,
-                padding: "14px 20px",
+                gap: 16,
+                background: isMax ? "rgba(255,59,48,0.15)" : "rgba(255,255,255,0.05)",
+                border: `1.5px solid ${isMax ? "rgba(255,59,48,0.45)" : "rgba(255,255,255,0.09)"}`,
+                borderRadius: 14,
+                padding: "18px 24px",
               }}>
                 <div style={{
-                  fontSize: 28,
+                  fontSize: 32,
                   fontWeight: 700,
                   color: isMax ? "#FF3B30" : "rgba(255,255,255,0.4)",
                   fontFamily: FONT_MONO,
-                  minWidth: 80,
+                  minWidth: 90,
                 }}>{fine.level}</div>
                 <div style={{
                   flex: 1,
-                  fontSize: 28,
-                  color: "rgba(255,255,255,0.7)",
+                  fontSize: 34,
+                  color: "rgba(255,255,255,0.75)",
                   fontFamily: FONT_SANS,
                   fontWeight: 500,
                 }}>{fine.type}</div>
                 <div style={{
-                  fontSize: 32,
+                  fontSize: 38,
                   fontWeight: 800,
                   color: isMax ? "#FF3B30" : "#FF8C7A",
                   fontFamily: FONT_MONO,
@@ -158,6 +155,7 @@ export const Scene2Necessity = () => {
             );
           })}
         </div>
+
       </div>
     </AbsoluteFill>
   );
