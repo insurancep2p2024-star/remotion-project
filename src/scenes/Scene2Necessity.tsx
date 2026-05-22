@@ -13,7 +13,7 @@ export const Scene2Necessity = () => {
   const { fps } = useVideoConfig();
 
   const fadeIn = interpolate(frame, [0, 15], [0, 1], { extrapolateRight: "clamp" });
-  const fadeOut = interpolate(frame, [130, 149], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const fadeOut = interpolate(frame, [190, 209], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const alpha = fadeIn * fadeOut;
 
   const questionScale = spring({ frame, fps, config: { damping: 12, stiffness: 100, mass: 0.7 } });
