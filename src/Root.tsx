@@ -13,7 +13,7 @@ export const RemotionRoot = () => {
       <Composition
         id="EscritorioSeguroFull"
         component={EscritorioSeguroWithClosing}
-        durationInFrames={1051}
+        durationInFrames={1081}
         fps={30}
         width={1080}
         height={1920}
