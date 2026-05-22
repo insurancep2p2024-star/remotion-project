@@ -4,15 +4,23 @@ import { Scene2Necessity } from "./scenes/Scene2Necessity";
 import { Scene3ProductIntro } from "./scenes/Scene3ProductIntro";
 import { Scene4Demo } from "./scenes/Scene4Demo";
 import { Scene5Features } from "./scenes/Scene5Features";
-import { Scene6Benefits } from "./scenes/Scene6Benefits";
 import { Scene7CTA } from "./scenes/Scene7CTA";
 import { ClosingCard } from "./scenes/SceneClosing";
 import { SceneThumbnail } from "./scenes/SceneThumbnail";
 
-// Frame 0: static thumbnail
-// Frames 1-1080: full video (36s)
+// Timeline (frames @ 30fps):
+// 0        thumbnail (1f)
+// 1-90     Scene1 Hook         3s
+// 91-240   Scene2 Necessity    5s
+// 241-390  Scene3 Intro+Benefits 5s  ← merged (was 3s intro + 3s benefits)
+// 391-630  Scene4 Demo         8s
+// 631-750  Scene5 Features     4s
+// 751-900  Scene7 CTA          5s
+// 901-1050 ClosingCard         5s
+// Total: 1050 + 1 thumb = 1051 frames ≈ 35s
+
 const THUMB = 1;
-const VIDEO_FRAMES = 1080;
+const VIDEO_FRAMES = 1050;
 const TOTAL_FRAMES = THUMB + VIDEO_FRAMES;
 
 export const EscritorioSeguroWithClosing = () => {
@@ -21,7 +29,6 @@ export const EscritorioSeguroWithClosing = () => {
   return (
     <AbsoluteFill style={{ background: "#0A2540" }}>
 
-      {/* 🎵 Audio — silent on thumbnail frame */}
       <Audio
         src={staticFile("music.mp3")}
         startFrom={0}
@@ -38,34 +45,43 @@ export const EscritorioSeguroWithClosing = () => {
         }
       />
 
-      {/* 🖼️ Frame 0: static thumbnail (looks like Scene1Hook at frame 60) */}
       {frame === 0 && <SceneThumbnail />}
 
-      {/* 🎬 Full video starting at frame 1 */}
-      <Sequence from={THUMB + 0} durationInFrames={90}>
+      {/* Scene 1 — Hook (3s) */}
+      <Sequence from={THUMB} durationInFrames={90}>
         <Scene1Hook />
       </Sequence>
+
+      {/* Scene 2 — Necessity (5s) */}
       <Sequence from={THUMB + 90} durationInFrames={150}>
         <Scene2Necessity />
       </Sequence>
-      <Sequence from={THUMB + 240} durationInFrames={90}>
+
+      {/* Scene 3 — Intro + Benefits merged (5s) */}
+      <Sequence from={THUMB + 240} durationInFrames={150}>
         <Scene3ProductIntro />
       </Sequence>
-      <Sequence from={THUMB + 330} durationInFrames={240}>
+
+      {/* Scene 4 — Demo (8s) */}
+      <Sequence from={THUMB + 390} durationInFrames={240}>
         <Scene4Demo />
       </Sequence>
-      <Sequence from={THUMB + 570} durationInFrames={120}>
+
+      {/* Scene 5 — Features (4s) */}
+      <Sequence from={THUMB + 630} durationInFrames={120}>
         <Scene5Features />
       </Sequence>
-      <Sequence from={THUMB + 690} durationInFrames={90}>
-        <Scene6Benefits />
-      </Sequence>
-      <Sequence from={THUMB + 780} durationInFrames={150}>
+
+      {/* Scene 7 — CTA (5s) */}
+      <Sequence from={THUMB + 750} durationInFrames={150}>
         <Scene7CTA />
       </Sequence>
-      <Sequence from={THUMB + 930} durationInFrames={150}>
+
+      {/* Closing card (5s) */}
+      <Sequence from={THUMB + 900} durationInFrames={150}>
         <ClosingCard />
       </Sequence>
+
     </AbsoluteFill>
   );
 };
