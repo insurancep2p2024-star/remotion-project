@@ -50,7 +50,7 @@ export const CursoScene1Hook = () => {
           lineHeight: 1, marginBottom: 4, textAlign: "center",
         }}>CURSO</div>
 
-        {/* CMS 2026 */}
+        {/* Normativas de Conexión para los portales del Mercado de Salud 2026 */}
         <div style={{
           transform: `scale(${yearScale})`,
           fontSize: 110, fontWeight: 900,
@@ -58,7 +58,7 @@ export const CursoScene1Hook = () => {
           WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
           fontFamily: FONT_SANS, letterSpacing: "-0.04em",
           lineHeight: 1, marginBottom: 48, textAlign: "center",
-        }}>CMS 2026</div>
+        }}>Normativas de Conexión<br/>para los portales del<br/>Mercado de Salud 2026</div>
 
         {/* Subtitle */}
         <div style={{
