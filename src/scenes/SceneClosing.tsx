@@ -134,7 +134,7 @@ export const ClosingCard = () => {
             color: "#0A2540",
             fontFamily: FONT_SANS,
             letterSpacing: "-0.01em",
-          }}>+58 412 241 9413</span>
+          }}>+1 407 456 7056</span>
         </div>
 
         {/* Tagline */}
