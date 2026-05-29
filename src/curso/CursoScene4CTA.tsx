@@ -72,7 +72,7 @@ export const CursoScene4CTA = () => {
           <span style={{
             background: "linear-gradient(90deg, #29ABE2, #0066FF)",
             WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-          }}>Curso CMS 2026</span>
+          }}>Curso Normativas de Conexión para los portales del Mercado de Salud 2026</span>
         </div>
 
         {/* WhatsApp button */}
