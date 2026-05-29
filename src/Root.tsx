@@ -2,6 +2,7 @@ import { Composition } from "remotion";
 import { EscritorioSeguroVideo } from "./EscritorioSeguroVideo";
 import { ClosingCard } from "./scenes/SceneClosing";
 import { EscritorioSeguroWithClosing } from "./EscritorioSeguroWithClosing";
+import { CursoCMS2026Video } from "./curso/CursoCMS2026Video";
 import { loadFonts } from "./fonts";
 
 loadFonts();
@@ -9,7 +10,7 @@ loadFonts();
 export const RemotionRoot = () => {
   return (
     <>
-      {/* Video completo con cierre */}
+      {/* Escritorio Seguro — video completo con cierre */}
       <Composition
         id="EscritorioSeguroFull"
         component={EscritorioSeguroWithClosing}
@@ -19,7 +20,7 @@ export const RemotionRoot = () => {
         height={1920}
       />
 
-      {/* Solo el video (sin cierre) */}
+      {/* Escritorio Seguro — solo el video */}
       <Composition
         id="EscritorioSeguro"
         component={EscritorioSeguroVideo}
@@ -29,11 +30,21 @@ export const RemotionRoot = () => {
         height={1920}
       />
 
-      {/* Cierre reutilizable independiente */}
+      {/* Cierre reutilizable */}
       <Composition
         id="ClosingCard"
         component={ClosingCard}
         durationInFrames={150}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
+      {/* Curso CMS 2026 — 30s promo */}
+      <Composition
+        id="CursoCMS2026"
+        component={CursoCMS2026Video}
+        durationInFrames={900}
         fps={30}
         width={1080}
         height={1920}
