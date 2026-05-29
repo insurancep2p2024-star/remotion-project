@@ -69,7 +69,7 @@ export const CursoScene2List = () => {
           <div style={{
             fontSize: 56, fontWeight: 900, color: "white",
             fontFamily: FONT_SANS, letterSpacing: "-0.03em", lineHeight: 1.1,
-          }}>CMS 2026</div>
+          }}>Normativas de Conexión<br/>portales del Mercado de Salud 2026</div>
           {/* Divider */}
           <div style={{
             height: 2, marginTop: 16,
