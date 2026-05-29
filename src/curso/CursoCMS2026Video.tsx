@@ -1,21 +1,19 @@
-import { AbsoluteFill, Sequence, Audio, staticFile, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Sequence, Audio, staticFile, interpolate } from "remotion";
 import { CursoScene1Hook } from "./CursoScene1Hook";
 import { CursoScene2List } from "./CursoScene2List";
 import { CursoScene3QA }   from "./CursoScene3QA";
 import { CursoScene4CTA }  from "./CursoScene4CTA";
 
 // Timeline @ 30fps:
-// 0    - 119  Scene 1 Hook       4s  (120f)
-// 120  - 659  Scene 2 List      18s  (540f)
-// 660  - 779  Scene 3 Q&A        4s  (120f)
-// 780  - 899  Scene 4 CTA        4s  (120f)
-// Total: 900 frames = 30s
+// 0    - 179  Scene 1 Hook       6s  (180f)  ← +2s
+// 180  - 719  Scene 2 List      18s  (540f)
+// 720  - 839  Scene 3 Q&A        4s  (120f)
+// 840  - 959  Scene 4 CTA        4s  (120f)
+// Total: 960 frames = 32s
 
-const VIDEO_FRAMES = 900;
+const VIDEO_FRAMES = 960;
 
 export const CursoCMS2026Video = () => {
-  const frame = useCurrentFrame();
-
   return (
     <AbsoluteFill style={{ background: "#0A2540" }}>
       <Audio
@@ -31,11 +29,10 @@ export const CursoCMS2026Video = () => {
           )
         }
       />
-
-      <Sequence from={0}   durationInFrames={120}><CursoScene1Hook /></Sequence>
-      <Sequence from={120} durationInFrames={540}><CursoScene2List /></Sequence>
-      <Sequence from={660} durationInFrames={120}><CursoScene3QA  /></Sequence>
-      <Sequence from={780} durationInFrames={120}><CursoScene4CTA /></Sequence>
+      <Sequence from={0}   durationInFrames={180}><CursoScene1Hook /></Sequence>
+      <Sequence from={180} durationInFrames={540}><CursoScene2List /></Sequence>
+      <Sequence from={720} durationInFrames={120}><CursoScene3QA  /></Sequence>
+      <Sequence from={840} durationInFrames={120}><CursoScene4CTA /></Sequence>
     </AbsoluteFill>
   );
 };
