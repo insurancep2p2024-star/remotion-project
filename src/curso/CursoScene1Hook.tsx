@@ -6,7 +6,7 @@ export const CursoScene1Hook = () => {
   const { fps } = useVideoConfig();
 
   const fadeIn = interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" });
-  const fadeOut = interpolate(frame, [105, 119], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const fadeOut = interpolate(frame, [165, 179], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   const badgeScale = spring({ frame, fps, config: { damping: 11, stiffness: 130, mass: 0.6 } });
   const titleScale = spring({ frame: Math.max(0, frame - 8), fps, config: { damping: 12, stiffness: 110, mass: 0.7 } });
@@ -53,11 +53,10 @@ export const CursoScene1Hook = () => {
         {/* Normativas de Conexión para los portales del Mercado de Salud 2026 */}
         <div style={{
           transform: `scale(${yearScale})`,
-          fontSize: 110, fontWeight: 900,
-          background: "linear-gradient(90deg, #29ABE2, #0066FF)",
-          WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-          fontFamily: FONT_SANS, letterSpacing: "-0.04em",
-          lineHeight: 1, marginBottom: 48, textAlign: "center",
+          fontSize: 52, fontWeight: 700,
+          color: "rgba(255,255,255,0.88)",
+          fontFamily: FONT_SANS, letterSpacing: "-0.02em",
+          lineHeight: 1.25, marginBottom: 48, textAlign: "center",
         }}>Normativas de Conexión<br/>para los portales del<br/>Mercado de Salud 2026</div>
 
         {/* Subtitle */}
